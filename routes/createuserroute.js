@@ -7,12 +7,13 @@ router.post('/', function(req, res) {
    console.log('user', JSON.stringify(user, null, 2));
    res.render('index');
 
-   Test.collection("user").save(name, (err, result) => {
-      if(err) {
-        console.log(err);
-      }
+   testdb.collection("user").save(name, (err, result) => {
+    if(err) {
+      console.log(err);
+    }
 
-      res.send('test added successfully');
+    res.send('user added successfully');
+  });
 });
 
 router.get('/', function(req, res) {
