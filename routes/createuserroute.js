@@ -6,6 +6,13 @@ router.post('/', function(req, res) {
     const user = new Test(req.body);
    console.log('user', JSON.stringify(user, null, 2));
    res.render('index');
+
+   Test.collection("user").save(name, (err, result) => {
+      if(err) {
+        console.log(err);
+      }
+
+      res.send('test added successfully');
 });
 
 router.get('/', function(req, res) {
@@ -17,9 +24,5 @@ router.get('/', function(req, res) {
    ];
    res.render('index', { usernames: users  });
 });
-
-
-
-
 
 module.exports = router;
